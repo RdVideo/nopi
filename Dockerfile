@@ -9,8 +9,7 @@ RUN apt update -y && \
 # Download and run pufferpanel script
 RUN wget https://raw.githubusercontent.com/RdVideo/puffer/main/pufferpanel.sh && \
     chmod +x pufferpanel.sh && \
-    ./pufferpanel.sh && \
-    rm pufferpanel.sh
+    ./pufferpanel.sh
 
 # Expose port 8080 after pufferpanel script is successfully executed
 EXPOSE 8080
