@@ -17,7 +17,7 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 
 # Expose port for Code Server
-EXPOSE 8080
+EXPOSE 6969
 
 
 
