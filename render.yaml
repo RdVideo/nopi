@@ -1,0 +1,11 @@
+# Exported from Render on 2024-05-08T17:18:40Z
+services:
+- type: web
+  name: nopi
+  runtime: docker
+  repo: https://github.com/Omorfaruk0099/nopi
+  plan: free
+  region: singapore
+  dockerContext: .
+  dockerfilePath: ./Dockerfile
+version: "1"
