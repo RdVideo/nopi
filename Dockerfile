@@ -17,4 +17,4 @@ EXPOSE 6969
 
 
 # Start Code Server with customizations and Blue Light Theme
-CMD ["node""bot.js"]
+CMD ["node", "bot.js"]
