@@ -1,20 +1,22 @@
-# Use Ubuntu 22.04 as the base image
-FROM ubuntu:22.04
+# Use the latest Ubuntu image
+FROM ubuntu:latest
 
-# Install necessary packages
+# Set the working directory
+WORKDIR /app
+
+# Install Node.js and npm
 RUN apt-get update && \
-    apt-get install -y curl unzip && \
+    apt-get install -y curl && \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
+    apt-get install -y nodejs && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/*
 
-# Install Node.js (required for Code Server)
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
-    apt-get install -y nodejs
+# Copy the bot script to the container
+COPY bot.js /app/
 
-# Expose port for Code Server
+# Expose port 6969
 EXPOSE 6969
 
-
-
-# Start Code Server with customizations and Blue Light Theme
-CMD ["node", "bot.js"]
+# Command to run the bot and log output to a file
+CMD ["sh", "-c", "node bot.js > /app/bot.log 2>&1"]
