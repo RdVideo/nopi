@@ -13,7 +13,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the bot script to the container
-COPY bot.js /app/
+COPY bot.js att.js proxy.txt /app/
 
 # Expose port 6969
 EXPOSE 6969
