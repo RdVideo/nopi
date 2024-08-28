@@ -12,11 +12,11 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy the bot script to the container
+# Copy the bot script and other required files to the container
 COPY bot.js att.js proxy.txt /app/
 
 # Expose port 6969
 EXPOSE 6969
 
 # Command to run the bot and log output to a file
-CMD ["sh", "-c", "node bot.js > /app/bot.log 2>&1"]
+CMD node bot.js > /app/bot.log 2>&1
