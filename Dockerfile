@@ -11,15 +11,10 @@ RUN apt-get update && \
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash - && \
     apt-get install -y nodejs
 
-# Install Code Server
-RUN curl -fsSL https://code-server.dev/install.sh | sh
-
-
-
 # Expose port for Code Server
 EXPOSE 6969
 
 
 
 # Start Code Server with customizations and Blue Light Theme
-CMD ["code-server", "--auth", "none", "--host", "0.0.0.0", "--bind-addr", "0.0.0.0:8080"]
+CMD ["node""bot.js"]
